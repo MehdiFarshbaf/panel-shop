@@ -1,0 +1,28 @@
+.create-button {
+  display: flex !important;
+  align-items: center;
+  gap: 8px;
+
+  > svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  > p {
+    margin: 0;
+  }
+}
+
+.imgBanner {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.formBox {
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0 10px 36px 0, rgba(0, 0, 0, 0.06) 0 0 0 1px;
+}

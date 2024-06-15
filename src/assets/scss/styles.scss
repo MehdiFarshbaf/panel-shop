@@ -1,0 +1,52 @@
+input:not(:placeholder-shown)[type="email"] {
+  text-align: right !important;
+  direction: rtl !important;
+}
+
+input:not(:placeholder-shown)[type="password"] {
+  text-align: right !important;
+}
+
+.col-operation {
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+
+  button:nth-child(even) {
+    //margin-right: 5px;
+    margin-left: 5px;
+  }
+}
+
+.direction-rtl {
+  p {
+    text-align: right;
+    direction: rtl;
+  }
+}
+
+.cardFooter {
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.imageLoader {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  img{
+    margin-bottom: 20px;
+    object-fit: cover;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .cardFooter {
+    justify-content: space-between;
+  }
+}

@@ -1,0 +1,21 @@
+@font-face {
+  font-family: 'YekanBakhRegular';
+  font-weight: 500;
+  font-style: normal;
+  src: local('YekanBakhRegular'), url('YekanBakhRegular.otf') format('OpenType');
+  font-display: swap;
+  }
+
+@font-face {
+  font-family: 'YekanBakhBold';
+  font-weight: 700;
+  font-style: normal;
+  src: local('YekanBakhBold'), url('YekanBakhBold.otf') format('OpenType');
+  font-display: swap;
+  }
+
+
+
+
+
+
