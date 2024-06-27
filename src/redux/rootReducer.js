@@ -14,6 +14,7 @@ import notifications from "@src/views/notifications/store"
 import pages from "@src/views/site-contents/store"
 import users from "./feature/userSlice"
 import categories from "./feature/categorySlice"
+import posts from "./feature/postSlice"
 
 import auth from "./authentication"
 
@@ -34,7 +35,8 @@ const rootReducer = {
     pages,
     withdraw,
     users,
-    categories
+    categories,
+    posts
 }
 
 export default rootReducer

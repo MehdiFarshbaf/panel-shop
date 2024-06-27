@@ -13,10 +13,11 @@ import notifications from "./notifications"
 import slider from "./slider"
 import users from './users'
 import category from './category'
+import post from './post'
 
 
 // ** Merge & Export
 export default [
-    ...dashboards, ...users, ...category, ...slider, ...siteContent, ...admin, ...withdraw, ...shop,
+    ...dashboards, ...users, ...category, ...post, ...slider, ...siteContent, ...admin, ...withdraw, ...shop,
     ...ads, ...transaction, ...chat, ...discount, ...forms, ...notifications
 ]

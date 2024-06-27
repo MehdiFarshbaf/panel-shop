@@ -4,7 +4,7 @@ import {getAllCategories} from "@store/feature/categorySlice"
 import Loading from "@src/views/ui-elements/Loading/Loading"
 import {Card, CardBody, CardHeader} from "reactstrap"
 import {Link} from "react-router-dom"
-import TableWithButtons from "@src/views/ui-elements/Table/TableWithButtons";
+import TableWithButtons from "@src/views/ui-elements/Table/TableWithButtons"
 
 const CategoryList = () => {
 

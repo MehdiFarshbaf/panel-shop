@@ -32,6 +32,7 @@ import FormsRoutes from "@src/router/routes/Forms"
 import WithdrawRoutes from "@src/router/routes/Withdraw"
 import UserRoutes from "@src/router/routes/Users"
 import CategoryRoutes from "@src/router/routes/Category"
+import PostRoutes from "@src/router/routes/Post"
 import {Navigate} from "react-router-dom"
 
 const getLayout = {
@@ -63,7 +64,8 @@ const Routes = [
     ...PagesRoutes,
     ...WithdrawRoutes,
     ...UserRoutes,
-    ...CategoryRoutes
+    ...CategoryRoutes,
+    ...PostRoutes
 ]
 
 const getRouteMeta = route => {

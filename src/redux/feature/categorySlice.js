@@ -29,7 +29,7 @@ const createCategory = createAsyncThunk("category/create", async (categoryData) 
 
 const initialState = {
     loading: false,
-    disable:false,
+    disable: false,
     category: {},
     categories: [],
     total: 0
@@ -64,7 +64,7 @@ const categorySlice = createSlice({
         builder.addCase(createCategory.pending, state => {
             state.disable = true
         })
-        builder.addCase(createCategory.rejected,state => {
+        builder.addCase(createCategory.rejected, state => {
             state.disable = flase
         })
     }

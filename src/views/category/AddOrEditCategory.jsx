@@ -10,6 +10,7 @@ import {toast} from "react-toastify"
 
 const AddEditCategory = ({currentData, isEdit}) => {
 
+    console.log(currentData)
     //variable
     const [file, setFile] = useState(null)
     const [preview, setPreview] = useState(null)
@@ -23,7 +24,7 @@ const AddEditCategory = ({currentData, isEdit}) => {
     })
 
     const defaultValues = {
-        name: (isEdit ? currentData.name : "")
+        name: (isEdit ? currentData?.name : "")
     }
 
     const {control, handleSubmit, formState: {errors}} = useForm({defaultValues, resolver: yupResolver(schema)})
