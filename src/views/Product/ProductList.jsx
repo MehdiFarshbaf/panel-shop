@@ -1,15 +1,15 @@
 import {Fragment, useEffect} from "react"
 import {useDispatch, useSelector} from "react-redux"
-import {getAllPosts} from "@store/feature/postSlice"
 import {Link} from "react-router-dom"
 import Loading from "@src/views/ui-elements/Loading/Loading"
 import {Card, CardBody, CardHeader} from "reactstrap"
 import TableWithButtons from "@src/views/ui-elements/Table/TableWithButtons"
+import {getAllProducts} from "@store/feature/ProductSlice"
 
-const PostsList = () => {
+const ProductList = () => {
 
     //variables
-    const {loading, posts, total} = useSelector(state => state.posts)
+    const {loading, products, total} = useSelector(state => state.products)
     const dispatch = useDispatch()
 
     //Table Columns
@@ -22,7 +22,7 @@ const PostsList = () => {
             cell: (row, index) => <span>{index + 1 || 0}</span>
         },
         {
-            name: 'عنوان پست',
+            name: 'نام محصول',
             sortable: true,
             minWidth: '100px',
             sortField: 'title',
@@ -31,7 +31,7 @@ const PostsList = () => {
                 <div className='d-flex justify-content-left align-items-center'>
                     <div className='d-flex flex-column'>
                         <Link
-                            to={`/posts/${row._id}`}
+                            to={`/products/${row._id}`}
                             className='user_name text-truncate text-black'
                         >
                             <span className='fw-bolder'>{row?.title || ''} </span>&nbsp;
@@ -49,7 +49,7 @@ const PostsList = () => {
                 <div className='d-flex justify-content-left align-items-center'>
                     <div className='d-flex flex-column'>
                         <Link
-                            to={`/posts/${row._id}`}
+                            to={`/products/${row._id}`}
                             className='user_name text-truncate text-black'
                         >
                             <span className='fw-bolder'>{row?.shortDescription || ''} </span>&nbsp;
@@ -62,7 +62,7 @@ const PostsList = () => {
             sortable: true,
             minWidth: '100px',
             sortField: 'title',
-            selector: row => row?.category.name,
+            selector: row => row?.category.name
         },
         {
             name: "عملیات",
@@ -70,33 +70,30 @@ const PostsList = () => {
             cell: (row) => {
                 return (
                     <div className="col-operation">
-                        <Link to={`/posts/${row._id}`} className="btn btn-warning btn-sm">جزئیات</Link>
+                        <Link to={`/products/${row._id}`} className="btn btn-warning btn-sm">جزئیات</Link>
                     </div>
                 )
             }
         }
     ]
 
-    const getFAQ=async ()=>{}
-
     useEffect(() => {
-        dispatch(getAllPosts())
-        getFAQ()
+        dispatch(getAllProducts())
     }, [])
     return (
         <Fragment>
             {loading ? <Loading/> : <Card>
                 <CardHeader>
-                    <h4>لیست پست ها - تعداد کل پست ها : {total}</h4>
-                    <Link to="/posts/add" className="btn btn-primary">پست جدید</Link>
+                    <h4>لیست محصولات - تعداد کل محصولات : {total}</h4>
+                    <Link to="/products/add" className="btn btn-primary">محصول جدید جدید</Link>
                 </CardHeader>
                 <CardBody>
-                    <TableWithButtons columns={columns} data={posts}
-                                      emptyMessage="هنوز پستی ایجاد نشده است."/>
+                    <TableWithButtons columns={columns} data={products}
+                                      emptyMessage="هنوز محصولی ایجاد نشده است."/>
                 </CardBody>
             </Card>
             }
         </Fragment>
     )
 }
-export default PostsList
+export default ProductList

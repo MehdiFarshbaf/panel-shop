@@ -19,20 +19,10 @@ import PrivateRoute from "@components/routes/PrivateRoute"
 import {isObjEmpty} from "@utils"
 import PagesRoutes from "./Pages"
 import AdminRoutes from "./Admin"
-import ShopRoutes from "./Shop"
-import SliderRoutes from "./Sliders"
-import AdsRoutes from "./Ads"
-
-import TransactionRoutes from "@src/router/routes/Transaction"
-import ChatRoutes from "@src/router/routes/Chat"
-import DiscountRoutes from "@src/router/routes/Discount"
-import SiteContentsRoutes from "@src/router/routes/SiteContent"
-import NotificationsRoutes from "@src/router/routes/Notifications"
-import FormsRoutes from "@src/router/routes/Forms"
-import WithdrawRoutes from "@src/router/routes/Withdraw"
 import UserRoutes from "@src/router/routes/Users"
 import CategoryRoutes from "@src/router/routes/Category"
 import PostRoutes from "@src/router/routes/Post"
+import ProductRoutes from "@src/router/routes/Product"
 import {Navigate} from "react-router-dom"
 
 const getLayout = {
@@ -52,20 +42,11 @@ const Routes = [
     ...AuthenticationRoutes,
     ...DashboardRoutes,
     ...AdminRoutes,
-    ...ShopRoutes,
-    ...SliderRoutes,
-    ...TransactionRoutes,
-    ...ChatRoutes,
-    ...DiscountRoutes,
-    ...NotificationsRoutes,
-    ...SiteContentsRoutes,
-    ...FormsRoutes,
-    ...AdsRoutes,
     ...PagesRoutes,
-    ...WithdrawRoutes,
     ...UserRoutes,
     ...CategoryRoutes,
-    ...PostRoutes
+    ...PostRoutes,
+    ...ProductRoutes
 ]
 
 const getRouteMeta = route => {

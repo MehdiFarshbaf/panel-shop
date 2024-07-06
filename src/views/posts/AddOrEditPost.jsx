@@ -25,7 +25,8 @@ const AddEditPost = ({currentData, isEdit}) => {
         title: Yup.string().required("عنوان پست الزامی می باشد")
             .min(3, "عنوان پست نباید کمتر از 3 کاراکتر باشد"),
         description: Yup.string().required("توضیحات پست الزامی می باشد"),
-        shortDescription: Yup.string().required("توضیحات کوتاه پست الزامی می باشد")
+        shortDescription: Yup.string().required("توضیحات کوتاه پست الزامی می باشد"),
+        // category_id: Yup.object().required("انتخاب دسته بندی الزامی است.")
     })
 
     const defaultValues = {
@@ -35,7 +36,7 @@ const AddEditPost = ({currentData, isEdit}) => {
         category_id: (isEdit ? {
             label: currentData?.category?.name,
             value: currentData?.category?._id
-        } : name)
+        } : null)
     }
 
     const {control, handleSubmit, formState: {errors}} = useForm({defaultValues, resolver: yupResolver(schema)})
@@ -177,6 +178,7 @@ const AddEditPost = ({currentData, isEdit}) => {
                                     />
                                 )}
                             />
+                            {errors.category_id && <FormFeedback>{errors.category_id.message}</FormFeedback>}
                         </Col>
                         <Col sm={6} className="mb-1">
                             <div className='imageLoader'>
