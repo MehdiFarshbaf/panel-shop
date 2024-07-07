@@ -1,10 +1,10 @@
 import {Button, Card, CardBody, CardFooter, CardHeader, Col, Form, FormFeedback, Input, Label, Row} from "reactstrap"
 import {Link, useNavigate} from "react-router-dom"
 import * as Yup from 'yup'
-import {useEffect, useState} from "react"
+import {useState} from "react"
 import {Controller, useFieldArray, useForm} from "react-hook-form"
 import {yupResolver} from "@hookform/resolvers/yup/dist/yup"
-import {handleDeleteAPI, handleShowErrorMessage} from "@utils"
+import {handleDeleteAPI, handleShowErrorMessage, showPersianDate} from "@utils"
 import API from "@src/utility/API"
 import {toast} from "react-toastify"
 import {useSelector} from "react-redux"
@@ -129,6 +129,12 @@ const AddOrEditProduct = ({currentData, isEdit}) => {
             <Form className="mt-2 pt-50" onSubmit={handleSubmit(handleEditCreate)}>
                 <CardHeader>{isEdit ? "ویرایش" : "ایجاد"} محصول</CardHeader>
                 <CardBody>
+                    {isEdit && <Row>
+                        <p className="rtl mt-2">تاریخ ایجاد
+                            : {showPersianDate(currentData.createdAt)}</p>
+                        <p className="rtl mt-2">تاریخ آخرین به روز رسانی
+                            : {showPersianDate(currentData.updatedAt)}</p>
+                    </Row>}
                     <Row>
                         <Col sm="6" className="mb-1">
                             <Label className="form-label mt-1" for="title">

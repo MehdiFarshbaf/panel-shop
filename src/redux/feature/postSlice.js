@@ -4,7 +4,6 @@ import {handleShowErrorMessage} from "@utils"
 
 const getAllPosts = createAsyncThunk("post/getAllPosts", async () => {
     try {
-        console.log("inter log")
         const {data} = await API.get("/blog")
 
         return data

@@ -7,9 +7,9 @@ const Footer = () => {
       <span className='float-md-start d-block d-md-inline-block mt-25'>
         کپی رایت © {new Date().getFullYear()}{' '}
        
-        <span className='d-none d-sm-inline-block'>  تمامی حقوق این سایت متعلق به شرکت
-              <a href='https://www.vistaapp.ir' target='_blank' rel='noopener noreferrer'>
-        &nbsp;   جوان فکران داده گستر (ویستا)&nbsp;
+        <span className='d-none d-sm-inline-block'>  تمامی حقوق این سایت متعلق به
+              <a href='https://www.farshbaf-dev.ir' target='_blank' rel='noopener noreferrer'>
+        &nbsp;   مهدی فرشباف&nbsp;
         </a>
              میباشد. &nbsp;</span>
       </span>

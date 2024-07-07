@@ -23,6 +23,7 @@ import UserRoutes from "@src/router/routes/Users"
 import CategoryRoutes from "@src/router/routes/Category"
 import PostRoutes from "@src/router/routes/Post"
 import ProductRoutes from "@src/router/routes/Product"
+import FAQRoutes from "@src/router/routes/FAQ"
 import {Navigate} from "react-router-dom"
 
 const getLayout = {
@@ -46,7 +47,8 @@ const Routes = [
     ...UserRoutes,
     ...CategoryRoutes,
     ...PostRoutes,
-    ...ProductRoutes
+    ...ProductRoutes,
+    ...FAQRoutes
 ]
 
 const getRouteMeta = route => {

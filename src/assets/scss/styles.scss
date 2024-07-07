@@ -48,5 +48,10 @@ input:not(:placeholder-shown)[type="password"] {
 @media screen and (max-width: 560px) {
   .cardFooter {
     justify-content: space-between;
+    flex-direction: column;
+    gap: 10px;
+   a, button{
+      width: 100%;
+    }
   }
 }

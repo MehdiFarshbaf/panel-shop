@@ -4,7 +4,7 @@ import * as Yup from 'yup'
 import {useState} from "react"
 import {Controller, useFieldArray, useForm} from "react-hook-form"
 import {yupResolver} from "@hookform/resolvers/yup/dist/yup"
-import {handleDeleteAPI, handleShowErrorMessage} from "@utils"
+import {handleDeleteAPI, handleShowErrorMessage, showPersianDate} from "@utils"
 import API from "@src/utility/API"
 import {toast} from "react-toastify"
 import {useSelector} from "react-redux"
@@ -179,6 +179,11 @@ const AddEditPost = ({currentData, isEdit}) => {
                                 )}
                             />
                             {errors.category_id && <FormFeedback>{errors.category_id.message}</FormFeedback>}
+
+                            {isEdit && <p className="rtl mt-2">تاریخ ایجاد
+                                : {showPersianDate(currentData.createdAt)}</p>}
+                            {isEdit && <p className="rtl mt-2">تاریخ آخرین به روز رسانی
+                                : {showPersianDate(currentData.updatedAt)}</p>}
                         </Col>
                         <Col sm={6} className="mb-1">
                             <div className='imageLoader'>
