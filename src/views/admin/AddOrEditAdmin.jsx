@@ -28,11 +28,9 @@ const AddOrEditAdmin = ({currentData, isEdit, roles}) => {
 
     const schema = Yup.object().shape({
         email: Yup.string().required("ایمیل برای مدیر الزامی است.").email("ایمیل وارد شده معتبر نمی باشد."),
-        password: Yup.string().required("گذرواژه الزامی است."),
         mobile: Yup.string().matches(/^(\+98?)?{?(0?9[0-9]{9,9}}?)$/, 'شماره موبایل معتبر نیست').required('این فیلد الزامی می باشد.').length(11, 'طول شماره تلفن باید 11 کاراکتر باشد.'),
         fullname: Yup.string().required("نام مدیر الزامی است.")
     })
-
 
     const defaultValues = {
         fullname: (isEdit ? currentData?.fullname : ""),
@@ -43,7 +41,6 @@ const AddOrEditAdmin = ({currentData, isEdit, roles}) => {
             value: currentData?.role?._id
         } : null)
     }
-
     const {control, handleSubmit, formState: {errors}} = useForm({defaultValues, resolver: yupResolver(schema)})
 
     //functions
@@ -58,28 +55,34 @@ const AddOrEditAdmin = ({currentData, isEdit, roles}) => {
     }
 
     const handleEditCreate = async (newAdmin) => {
-        const admin = {...newAdmin, role: newAdmin.role.value}
-        try {
-            setLoading(true)
-            if (isEdit) {
-                const {data} = await API.put(`/admin/${currentData._id}`, admin)
-                if (data.success) {
-                    toast.success(data.message)
-                    navigation("/admins")
+
+        if (newAdmin.role) {
+            const admin = {...newAdmin, role: newAdmin.role.value}
+
+            try {
+                setLoading(true)
+                if (isEdit) {
+                    const {data} = await API.put(`/admin/${currentData._id}`, admin)
+                    if (data.success) {
+                        toast.success(data.message)
+                        navigation("/admins")
+                    }
+                } else {
+                    const {data} = await API.post("/admin", admin)
+                    if (data.success) {
+                        toast.success(data.message)
+                        navigation("/admins")
+                    }
                 }
-            } else {
-                const {data} = await API.post("/admin", admin)
-                if (data.success) {
-                    toast.success(data.message)
-                    navigation("/admins")
-                }
+
+            } catch (err) {
+                await handleShowErrorMessage(err)
+                setLoading(false)
             }
 
-        } catch (err) {
-            await handleShowErrorMessage(err)
-            setLoading(false)
+        } else {
+            toast.error("انتخاب نقش الزامی است.")
         }
-
 
     }
 
