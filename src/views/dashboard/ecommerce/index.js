@@ -40,9 +40,8 @@ const EcommerceDashboard = () => {
                 <Col xl='12' md='12' xs='12'>
                     <StatisticsCards cols={{xl: '3', sm: '6'}}/>
                 </Col>
-                <Col lg='4' md='6' xs='12'>
-                    <TenLatest cols={{xl: '3', sm: '6'}}
-                               title={"آخرین فروشگاه ها"} link={"/shop/list"} list={"shop"}/>
+                <Col lg='12' md='12' xs='12'>
+                    <h2>این صفحه در حال توسعه هست لطفا از دیگر امکانات استفاده کنید.</h2>
                 </Col>
 
             </Row>

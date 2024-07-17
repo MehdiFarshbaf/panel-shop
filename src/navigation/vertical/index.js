@@ -9,5 +9,4 @@ import product from './products'
 
 
 // ** Merge & Export
-// export default [...dashboards, ...users, ...category, ...post, ...product, ...admin, ...setting]
-export default [...dashboards, ...users, ...category, ...post, ...product, ...setting]
+export default [...dashboards, ...users, ...category, ...post, ...product, ...admin, ...setting]

@@ -57,14 +57,16 @@ export default class JwtService {
                     // Unauthenticated
                     case 403:
                         // toast.error("شما مجوز دسترسی به این صفجه را ندارید.")
-                        localStorage.removeItem('userData')
-                        localStorage.removeItem("accessToken")
-                        localStorage.removeItem("userRole")
-                        API.navigate("/auth/not-auth", {replace: true})
+                        // localStorage.removeItem('userData')
+                        // localStorage.removeItem("accessToken")
+                        // localStorage.removeItem("userRole")
+                        // API.navigate("/auth/not-auth", {replace: true})
+                        // toast.error(response.data.message)
                         break
 
                     // Not found
                     case 404:
+                        toast.error(response.data.message)
                         toast.error("آدرس درخواست شده یافت نشد.")
 
                         // axios.navigate("/not-found", { replace: true });

@@ -5,6 +5,7 @@ input:not(:placeholder-shown)[type="email"] {
 
 input:not(:placeholder-shown)[type="password"] {
   text-align: right !important;
+  direction: rtl !important;
 }
 
 .col-operation {

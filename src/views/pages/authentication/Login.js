@@ -98,6 +98,8 @@ const Login = () => {
                         <CardTitle tag='h2' className='fw-bold mb-1'>به مدیریت بخش خوش آمدید 👋</CardTitle>
 
                         <CardText className='mb-2'>لطفا اطلاعات خود را وارد برای ورود به اکانت وارد کنید</CardText>
+                        <CardText className='mb-2'>ایمیل برای ورود به سایت : mehdifarshbaf92@gmail.ocm</CardText>
+                        <CardText className='mb-2'>گذرواژه برای ورود به سایت : Mehdi14439</CardText>
                         <Form className='auth-login-form mt-2' onSubmit={handleSubmit(onSubmit)}>
                             <div className='mb-1'>
                                 <Label className='form-label' for='email'>ایمیل</Label>

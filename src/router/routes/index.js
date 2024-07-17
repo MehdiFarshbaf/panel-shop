@@ -14,9 +14,6 @@ import LayoutWrapper from "@src/@core/layouts/components/layout-wrapper"
 // ** Route Components
 import PublicRoute from "@components/routes/PublicRoute"
 import PrivateRoute from "@components/routes/PrivateRoute"
-
-// ** Utils
-import {isObjEmpty} from "@utils"
 import PagesRoutes from "./Pages"
 import AdminRoutes from "./Admin"
 import UserRoutes from "@src/router/routes/Users"
@@ -24,6 +21,10 @@ import CategoryRoutes from "@src/router/routes/Category"
 import PostRoutes from "@src/router/routes/Post"
 import ProductRoutes from "@src/router/routes/Product"
 import FAQRoutes from "@src/router/routes/FAQ"
+import RoleRoutes from "@src/router/routes/Role"
+// ** Utils
+import {isObjEmpty} from "@utils"
+
 import {Navigate} from "react-router-dom"
 
 const getLayout = {
@@ -48,6 +49,7 @@ const Routes = [
     ...CategoryRoutes,
     ...PostRoutes,
     ...ProductRoutes,
+    ...RoleRoutes,
     ...FAQRoutes
 ]
 

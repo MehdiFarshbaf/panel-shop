@@ -3,7 +3,6 @@ import {useParams} from 'react-router-dom'
 import {useDispatch, useSelector} from "react-redux"
 import AddOrEditPost from "@src/views/posts/AddOrEditPost"
 import {getPost} from "@store/feature/postSlice"
-import {getAllCategories} from "@store/feature/categorySlice"
 import Loading from "@src/views/ui-elements/Loading/Loading"
 
 
@@ -19,7 +18,6 @@ const AddEditPost = () => {
         if (id) {
             dispatch(getPost(id))
         }
-        dispatch(getAllCategories())
     }, [])
 
     return (

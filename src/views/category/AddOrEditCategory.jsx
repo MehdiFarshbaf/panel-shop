@@ -30,7 +30,6 @@ const AddEditCategory = ({currentData, isEdit}) => {
 
     //functions
     const handleDeleteCategory = async () => {
-        console.log("run edit command")
         try {
             const data = await handleDeleteAPI(`/category/${currentData._id}`)
             if (data?.success) navigation("/category")

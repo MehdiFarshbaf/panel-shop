@@ -1,17 +1,18 @@
 import {Fragment, useEffect} from "react"
 import {useDispatch, useSelector} from "react-redux"
-import {getAllPosts} from "@store/feature/postSlice"
 import {Link} from "react-router-dom"
 import Loading from "@src/views/ui-elements/Loading/Loading"
 import {Card, CardBody, CardHeader} from "reactstrap"
 import TableWithButtons from "@src/views/ui-elements/Table/TableWithButtons"
+import {getAllAdmins} from "@store/feature/adminSlice"
 
-const PostsList = () => {
+const AdminsList = () => {
 
     //variables
-    const {loading, posts, total} = useSelector(state => state.posts)
+    const {loading, admins, total} = useSelector(state => state.admins)
     const dispatch = useDispatch()
 
+    console.log(admins)
     //Table Columns
     const columns = [
         {
@@ -22,47 +23,60 @@ const PostsList = () => {
             cell: (row, index) => <span>{index + 1 || 0}</span>
         },
         {
-            name: 'عنوان پست',
+            name: 'نام',
             sortable: true,
             minWidth: '100px',
-            sortField: 'title',
-            selector: row => row?.title,
+            sortField: 'fullname',
+            selector: row => row?.fullname,
             cell: row => (
                 <div className='d-flex justify-content-left align-items-center'>
                     <div className='d-flex flex-column'>
                         <Link
-                            to={`/posts/${row._id}`}
+                            to={`/admins/${row._id}`}
                             className='user_name text-truncate text-black'
                         >
-                            <span className='fw-bolder'>{row?.title || ''} </span>&nbsp;
+                            <span className='fw-bolder'>{row?.fullname || ''} </span>&nbsp;
                         </Link>
                     </div>
                 </div>
             )
         }, {
-            name: 'توضیحات کوتاه',
+            name: 'نقش',
             sortable: true,
             minWidth: '100px',
-            sortField: 'title',
-            selector: row => row?.shortDescription,
+            sortField: 'fullname',
+            selector: row => row?.role?.name,
             cell: row => (
                 <div className='d-flex justify-content-left align-items-center'>
                     <div className='d-flex flex-column'>
                         <Link
-                            to={`/posts/${row._id}`}
+                            to={`/admins/${row._id}`}
                             className='user_name text-truncate text-black'
                         >
-                            <span className='fw-bolder'>{row?.shortDescription || ''} </span>&nbsp;
+                            <span className='fw-bolder'>{row?.role?.name || ''} </span>&nbsp;
                         </Link>
                     </div>
                 </div>
             )
-        }, {
-            name: 'دسته بندی',
+        },
+        {
+            name: 'ایمیل',
             sortable: true,
             minWidth: '100px',
-            sortField: 'title',
-            selector: row => row?.category.name,
+            sortField: 'email',
+            selector: row => row?.email,
+            cell: row => (
+                <div className='d-flex justify-content-left align-items-center'>
+                    <div className='d-flex flex-column'>
+                        <Link
+                            to={`/admins/${row._id}`}
+                            className='user_name text-truncate text-black'
+                        >
+                            <span className='fw-bolder'>{row?.email || ''} </span>&nbsp;
+                        </Link>
+                    </div>
+                </div>
+            )
         },
         {
             name: "عملیات",
@@ -70,31 +84,30 @@ const PostsList = () => {
             cell: (row) => {
                 return (
                     <div className="col-operation">
-                        <Link to={`/posts/${row._id}`} className="btn btn-warning btn-sm">جزئیات</Link>
+                        <Link to={`/admins/${row._id}`} className="btn btn-warning btn-sm">جزئیات</Link>
                     </div>
                 )
             }
         }
     ]
 
-
     useEffect(() => {
-        dispatch(getAllPosts())
+        dispatch(getAllAdmins())
     }, [])
     return (
         <Fragment>
             {loading ? <Loading/> : <Card>
                 <CardHeader>
-                    <h4>لیست پست ها - تعداد کل پست ها : {total}</h4>
-                    <Link to="/posts/add" className="btn btn-primary">پست جدید</Link>
+                    <h4>لیست مدیران - تعداد کل مدیران : {total}</h4>
+                    <Link to="/admins/add" className="btn btn-primary">مدیر جدید</Link>
                 </CardHeader>
                 <CardBody>
-                    <TableWithButtons columns={columns} data={posts}
-                                      emptyMessage="هنوز پستی ایجاد نشده است."/>
+                    <TableWithButtons columns={columns} data={admins}
+                                      emptyMessage="هنوز مدیری ایجاد نشده است."/>
                 </CardBody>
             </Card>
             }
         </Fragment>
     )
 }
-export default PostsList
+export default AdminsList

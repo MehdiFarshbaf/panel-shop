@@ -8,7 +8,7 @@ import {handleDeleteAPI, handleShowErrorMessage, showPersianDate} from "@utils"
 import API from "@src/utility/API"
 import {toast} from "react-toastify"
 import {useSelector} from "react-redux"
-import Select, {components} from "react-select"
+import Select from "react-select"
 
 
 const AddEditPost = ({currentData, isEdit}) => {
