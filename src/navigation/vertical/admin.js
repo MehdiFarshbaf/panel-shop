@@ -11,7 +11,7 @@ export default [
         id: 'Admin',
         title: 'مدیران',
         permissions: ['admin'],
-
+        key: 'admins',
         icon: <AdminPanelSettings size={20}/>,
         children: [
             {
