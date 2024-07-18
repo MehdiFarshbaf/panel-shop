@@ -16,7 +16,7 @@ const getAllRoles = createAsyncThunk("role/getAllRoles", async () => {
 const getAllPermissions = createAsyncThunk("role/getAllPermissions", async () => {
     try {
         const {data} = await API.get("/permission")
-        console.log(data)
+
         return data
 
     } catch (err) {

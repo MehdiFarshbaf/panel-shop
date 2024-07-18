@@ -12,7 +12,6 @@ const AdminsList = () => {
     const {loading, admins, total} = useSelector(state => state.admins)
     const dispatch = useDispatch()
 
-    console.log(admins)
     //Table Columns
     const columns = [
         {

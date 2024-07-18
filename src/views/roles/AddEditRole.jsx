@@ -25,10 +25,22 @@ const AddEditRole = () => {
         <Fragment>
             {loading ? <Loading/> :
                 id && role !== null && role !== undefined ?
-                    <AddOrEditRole currentData={role}
-                                   permissions={permissions.map(permission => ({label: permission.title, value: permission.key}))}
-                                   isEdit={true}/> : id === undefined &&
-                    <AddOrEditRole isEdit={false} permissions={permissions.map(permission => ({label: permission.title, value: permission.key}))}/>
+                    <AddOrEditRole
+                        currentData={role}
+                        permissions={permissions.map(permission => ({
+                            label: permission.title,
+                            value: permission.key
+                        }))}
+                        isEdit={true} selectedPermissions={role?.permissions?.map(permission => ({
+                        label: permission.title,
+                        value: permission.key
+                    }))}/> : id === undefined &&
+                    <AddOrEditRole
+                        isEdit={false}
+                        permissions={permissions.map(permission => ({
+                            label: permission.title,
+                            value: permission.key
+                        }))}/>
             }
         </Fragment>
     )

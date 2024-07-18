@@ -1,7 +1,7 @@
 import {Button, Card, CardBody, CardFooter, CardHeader, Col, Form, FormFeedback, Input, Label, Row} from "reactstrap"
 import {Link, useNavigate} from "react-router-dom"
 import * as Yup from 'yup'
-import {useEffect, useState} from "react"
+import { useState} from "react"
 import {Controller, useForm} from "react-hook-form"
 import {yupResolver} from "@hookform/resolvers/yup/dist/yup"
 import {handleDeleteAPI, handleShowErrorMessage, showPersianDate} from "@utils"
@@ -17,11 +17,11 @@ import "@styles/react/libs/flatpickr/flatpickr.scss"
 import "@styles/base/pages/app-invoice.scss"
 import "cleave.js/dist/addons/cleave-phone.us"
 
-const AddOrEditRole = ({currentData, isEdit, permissions}) => {
+const AddOrEditRole = ({currentData, isEdit, permissions, selectedPermissions}) => {
 
 
     //variable
-    const [selected, setSelected] = useState([]);
+    const [selected, setSelected] = useState(isEdit ? selectedPermissions : [])
     const [loading, setLoading] = useState(false)
     const navigation = useNavigate()
 
@@ -59,7 +59,7 @@ const AddOrEditRole = ({currentData, isEdit, permissions}) => {
                     })
                 )
                 if (isEdit) {
-                    const {data} = await API.put(`/role/${currentData._id}`, newRole)
+                    const {data} = await API.put(`/role/${currentData._id}`, {...newRole, permissions: newPermissions})
                     if (data.success) {
                         toast.success(data.message)
                         navigation("/roles")
@@ -118,34 +118,7 @@ const AddOrEditRole = ({currentData, isEdit, permissions}) => {
                                 isMulti
                                 isSearchable
                             />
-                            {/*<Label className="form-label">مجوزها</Label>*/}
-                            {/*<Controller*/}
-                            {/*    control={control}*/}
-                            {/*    name={`permissions`}*/}
 
-                            {/*    render={({*/}
-                            {/*                 field: {*/}
-                            {/*                     onChange,*/}
-                            {/*                     value,*/}
-                            {/*                     ref*/}
-                            {/*                 }*/}
-                            {/*             }) => (*/}
-                            {/*        <Select*/}
-                            {/*            inputRef={ref}*/}
-                            {/*            className="react-select"*/}
-                            {/*            classNamePrefix="select"*/}
-                            {/*            value={value}*/}
-                            {/*            isMulti*/}
-                            {/*            onChange={val => {*/}
-                            {/*                onChange(val)*/}
-                            {/*            }}*/}
-                            {/*            options={permissions}*/}
-                            {/*            placeholder="مجوزها"*/}
-                            {/*            noOptionsMessage={() => "پیدا نشد"}*/}
-                            {/*            loadingMessage={() => "..."}   //minor type-O here*/}
-                            {/*        />*/}
-                            {/*    )}*/}
-                            {/*/>*/}
                         </Col>
                     </Row>
                 </CardBody>

@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from "react-redux"
 import Loading from "@src/views/ui-elements/Loading/Loading"
 import {getAdmin} from "@store/feature/adminSlice"
 import AddOrEditAdmin from "@src/views/admin/AddOrEditAdmin"
-import {getAllRoles} from "@store/feature/rolesSlice";
+import {getAllRoles} from "@store/feature/rolesSlice"
 
 
 const AddEditAdmin = () => {
@@ -14,7 +14,6 @@ const AddEditAdmin = () => {
     const {admin, loading} = useSelector(state => state.admins)
     const {roles} = useSelector(state => state.roles)
     const dispatch = useDispatch()
-    console.log(roles)
 
     //functions
     useEffect(() => {
