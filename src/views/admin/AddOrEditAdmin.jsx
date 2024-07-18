@@ -19,8 +19,6 @@ import "cleave.js/dist/addons/cleave-phone.us"
 
 const AddOrEditAdmin = ({currentData, isEdit, roles}) => {
 
-    console.log(roles)
-
     //variable
     const [loading, setLoading] = useState(false)
     const navigation = useNavigate()
@@ -36,7 +34,7 @@ const AddOrEditAdmin = ({currentData, isEdit, roles}) => {
         fullname: (isEdit ? currentData?.fullname : ""),
         email: isEdit ? currentData.email : "",
         mobile: isEdit ? currentData.mobile : "",
-        role: (isEdit ? {
+        role_id: (isEdit ? {
             label: currentData?.role?.name,
             value: currentData?.role?._id
         } : null)
@@ -56,8 +54,8 @@ const AddOrEditAdmin = ({currentData, isEdit, roles}) => {
 
     const handleEditCreate = async (newAdmin) => {
 
-        if (newAdmin.role) {
-            const admin = {...newAdmin, role: newAdmin.role.value}
+        if (newAdmin.role_id) {
+            const admin = {...newAdmin, role_id: newAdmin.role_id.value}
 
             try {
                 setLoading(true)
@@ -164,11 +162,11 @@ const AddOrEditAdmin = ({currentData, isEdit, roles}) => {
 
                         </Col>
                         <Col sm={6} className="mb-1">
-                            <Label className="form-label" for="role">
+                            <Label className="form-label" for="role_id">
                                 انتخاب نقش </Label>
                             <Controller
                                 control={control}
-                                name="role"
+                                name="role_id"
                                 render={({
                                              field: {
                                                  onChange,
@@ -191,7 +189,7 @@ const AddOrEditAdmin = ({currentData, isEdit, roles}) => {
                                     />
                                 )}
                             />
-                            {errors.role && <FormFeedback>{errors.role.message}</FormFeedback>}
+                            {errors.role_id && <FormFeedback>{errors.role_id.message}</FormFeedback>}
                         </Col>
                     </Row>
                 </CardBody>
