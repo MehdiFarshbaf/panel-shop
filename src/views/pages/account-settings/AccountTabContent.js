@@ -129,7 +129,7 @@ const AccountTabs = () => {
                                             autoFill={false}
                                             type='email'
                                             disable={true}
-                                            placeholder='ایمیل'
+                                            placeholder='john@example.com'
                                             invalid={errors.email && true}
                                             {...field}
                                         />

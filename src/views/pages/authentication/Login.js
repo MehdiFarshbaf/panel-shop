@@ -122,6 +122,9 @@ const Login = () => {
                             <div className='mb-1'>
                                 <div className='d-flex justify-content-between'>
                                     <Label className='form-label' for='login-password'>گذرواژه</Label>
+                                    <Link to='/forgot-password'>
+                                        <small>رمز عبور را فراموش کرده اید؟</small>
+                                    </Link>
                                 </div>
                                 <Controller
                                     id='password'
