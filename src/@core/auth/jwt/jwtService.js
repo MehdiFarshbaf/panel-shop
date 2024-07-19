@@ -46,11 +46,11 @@ export default class JwtService {
                         break
                     // Unauthorized
                     case 401:
-                        localStorage.removeItem('userData')
-                        localStorage.removeItem("accessToken")
-                        localStorage.removeItem("userRole")
-                        toast.error("اجازه دسترسی ندارید توکن نامعتبر!")
-                        API.navigate("/login", {replace: true})
+                        // localStorage.removeItem('userData')
+                        // localStorage.removeItem("accessToken")
+                        // localStorage.removeItem("userRole")
+                        // toast.error("اجازه دسترسی ندارید توکن نامعتبر!")
+                        // API.navigate("/login", {replace: true})
                         // axios.navigate("/", { replace: true })
                         break
 
