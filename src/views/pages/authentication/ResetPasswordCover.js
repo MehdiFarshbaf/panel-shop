@@ -148,6 +148,7 @@ const ResetPasswordCover = () => {
                                     رمز جدید
                                 </Label>
                                 <InputPassword className='input-group-merge'
+                                               placeholder='john@example.com'
                                                value={formik.values.password}
                                                onChange={formik.handleChange("password")}
                                                onBlur={formik.handleBlur("password")}
